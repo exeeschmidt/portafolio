@@ -5,5 +5,13 @@ export interface InfoPagina {
     facebook?: string;
     twitter?: string;
     instagram?: string;
-    equipo_trabajo?: any[];
+    equipo_trabajo?: Persona[];
+}
+
+export interface Persona {
+    nombre: string;
+    puesto: string;
+    frase: string;
+    twitter: string;
+    url: string;
 }
