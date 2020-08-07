@@ -1,3 +1,4 @@
+import { ProductDescription } from './../interfaces/product-description.interface';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -27,5 +28,9 @@ export class ProductService {
       );
   }
   */
+
+  public getProducto(id: string): Observable<ProductDescription> {
+    return this.http.get<ProductDescription>(`https://angular-portafolio-69110.firebaseio.com/productos/${id}.json`);
+  }
 
 }
