@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { InfoPagina, Persona } from './../interfaces/info-page.interface';
@@ -6,6 +7,7 @@ import { InfoPagina, Persona } from './../interfaces/info-page.interface';
   providedIn: 'root'
 })
 export class InfoPageService {
+  private env = environment;
 
   info: InfoPagina = {};
   loaded = false;
@@ -17,16 +19,16 @@ export class InfoPageService {
   }
 
   private loadInfo() {
-    this.http.get('assets/data/data-page.json')
-      .subscribe( (res: InfoPagina) => {
+    this.http.get(this.env.urlDataPage)
+      .subscribe((res: InfoPagina) => {
         this.info = res;
         this.loaded = true;
       });
   }
 
   private loadTeam() {
-    this.http.get('https://angular-portafolio-69110.firebaseio.com/equipo.json')
-      .subscribe( (res: Persona[]) => {
+    this.http.get(this.env.urlTeam)
+      .subscribe((res: Persona[]) => {
         this.equipo = res;
       });
   }

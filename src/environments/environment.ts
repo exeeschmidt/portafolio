@@ -2,8 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const urlBase = 'https://angular-portafolio-69110.firebaseio.com';
+
 export const environment = {
-  production: false
+  production: false,
+  urlDataPage: 'assets/data/data-page.json',
+  urlIProductsIdx: urlBase + '/productos_idx.json',
+  urlTeam: urlBase + '/equipo.json'
 };
 
 /*
